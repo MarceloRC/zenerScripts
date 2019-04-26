@@ -1,85 +1,20 @@
-(3/8): extras/7/x86_64/primary_db                                                                                                    | 187 kB  00:00:00     
-(4/8): zabbix/x86_64/primary_db                                                                                                      |  87 kB  00:00:01     
-(5/8): base/7/x86_64/primary_db                                                                                                      | 6.0 MB  00:00:05     
-(6/8): epel/x86_64/updateinfo                                                                                                        | 1.0 MB  00:00:06     
-(7/8): updates/7/x86_64/primary_db                                                                                                   | 3.4 MB  00:00:09     
-(8/8): epel/x86_64/primary_db                                                                                                        | 6.6 MB  00:01:12     
-zabbix-non-supported/x86_64/primary                                                                                                  | 1.6 kB  00:00:00     
-zabbix-non-supported                                                                                                                                    4/4
-O pacote zabbix-proxy-sqlite3-3.2.11-1.el7.x86_64 já está instalado em sua última versão
-Nada a ser feito
-Plugins carregados: fastestmirror
-Loading mirror speeds from cached hostfile
- * base: centos.ufes.br
- * epel: mirror.espoch.edu.ec
- * extras: centos.ufes.br
- * updates: centos.ufes.br
-O pacote zabbix-agent-3.2.11-1.el7.x86_64 já está instalado em sua última versão
-Nada a ser feito
-zabbix_proxy_CentOS: line 58: unexpected EOF while looking for matching `"'
-zabbix_proxy_CentOS: line 61: erro de sintaxe: fim prematuro do arquivo
-[root@firewall ~]# 
-[root@firewall ~]# vi zabbix_proxy_CentOS 
-[root@firewall ~]# sh zabbix_proxy_CentOS 
+#!bash
+clear
+#Instalando alguns pacotes necessarios
+yum install -y epel-release
 
-Plugins carregados: fastestmirror
-Loading mirror speeds from cached hostfile
- * base: centos.ufes.br
- * epel: mirror.espoch.edu.ec
- * extras: centos.ufes.br
- * updates: centos.ufes.br
-O pacote epel-release-7-11.noarch já está instalado em sua última versão
-Nada a ser feito
-Informe a versao do CentOS [7]
-Obtendo https://repo.zabbix.com/zabbix/3.2/rhel/7/x86_64/zabbix-release-3.2-1.el7.noarch.rpm
+#Baixando a versao correta da release
+read -p "Informe a versao do CentOS [7]" versao
+versao=${versao:-7}
 
+case "$versao" in
+          6)
+                rpm -Uvh https://repo.zabbix.com/zabbix/3.2/rhel/6/x86_64/zabbix-release-3.2-1.el6.noarch.rpm
+                  ;;
 
-Preparando...                         ################################# [100%]
-	o pacote zabbix-release-3.2-1.el7.noarch já está instalado
-Entre com o nome do servidor Zabbix [zabbix.solidtecnologia.com.br]: Entre com o nome desse proxy [firewall.famavida.int]: Plugins carregados: fastestmirror
-Limpando repositórios:base epel extras updates zabbix zabbix-non-supported
-Cleaning up everything
-Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned data from disabled or removed repos
-Cleaning up list of fastest mirrors
-Plugins carregados: fastestmirror
-Determining fastest mirrors
-epel/x86_64/metalink                                                                                                                 | 4.2 kB  00:00:00     
- * base: mirror.ufscar.br
- * epel: espejito.fder.edu.uy
- * extras: mirror.ufscar.br
- * updates: mirror.ufscar.br
-base                                                                                                                                 | 3.6 kB  00:00:00     
-epel                                                                                                                                 | 4.7 kB  00:00:00     
-extras                                                                                                                               | 3.4 kB  00:00:00     
-updates                                                                                                                              | 3.4 kB  00:00:00     
-zabbix                                                                                                                               | 2.9 kB  00:00:00     
-zabbix-non-supported                                                                                                                 |  951 B  00:00:00     
-(1/8): base/7/x86_64/group_gz                                                                                                        | 166 kB  00:00:00     
-(2/8): extras/7/x86_64/primary_db                                                                                                    | 187 kB  00:00:00     
-(3/8): epel/x86_64/group_gz                                                                                                          |  88 kB  00:00:00     
-(4/8): zabbix/x86_64/primary_db                                                                                                      |  87 kB  00:00:01     
-(5/8): epel/x86_64/updateinfo                                                                                                        | 1.0 MB  00:00:06     
-(6/8): updates/7/x86_64/primary_db                                                                                                   | 3.4 MB  00:00:06     
-(7/8): base/7/x86_64/primary_db                                                                                                      | 6.0 MB  00:00:12     
-(8/8): epel/x86_64/primary_db                                                                                                        | 6.6 MB  00:00:42     
-zabbix-non-supported/x86_64/primary                                                                                                  | 1.6 kB  00:00:00     
-zabbix-non-supported                                                                                                                                    4/4
-O pacote zabbix-proxy-sqlite3-3.2.11-1.el7.x86_64 já está instalado em sua última versão
-Nada a ser feito
-Plugins carregados: fastestmirror
-Loading mirror speeds from cached hostfile
- * base: mirror.ufscar.br
- * epel: espejito.fder.edu.uy
- * extras: mirror.ufscar.br
- * updates: mirror.ufscar.br
-O pacote zabbix-agent-3.2.11-1.el7.x86_64 já está instalado em sua última versão
-Nada a ser feito
-Iniciando e habilitando os serviços. Nao esqueca de abrir no Firewall as portas 10050 para entrada e 10051 para saida
-Created symlink from /etc/systemd/system/multi-user.target.wants/zabbix-proxy.service to /usr/lib/systemd/system/zabbix-proxy.service.
-Created symlink from /etc/systemd/system/multi-user.target.wants/zabbix-agent.service to /usr/lib/systemd/system/zabbix-agent.service.
-Failed to restart zabbyx-proxy.service: Unit not found.
-[root@firewall ~]# vi zabbix_proxy_CentOS 
-
+          7)
+                rpm -Uvh https://repo.zabbix.com/zabbix/3.2/rhel/7/x86_64/zabbix-release-3.2-1.el7.noarch.rpm
+                  ;;
           *)
                   echo "Versao e uma informacao necessaria de ser informada"
                   exit 1
