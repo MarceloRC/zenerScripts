@@ -8,3 +8,4 @@ yum -y install gcc perl
 tar -zxvf /mnt/CD/VMwareTools-9.0.5-1065307.tar.gz
 cd vmware-tools-distrib/
 ./vmware-install.pl -d
+umount /dev/cdrom
