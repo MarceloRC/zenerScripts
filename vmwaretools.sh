@@ -5,7 +5,7 @@
 mkdir /mnt/CD
 mount -tiso9660 /dev/cdrom /mnt/CD
 yum -y install gcc perl
-tar -zxvf /mnt/CD/VMwareTools-9.0.5-1065307.tar.gz
+tar -zxvf /mnt/CD/VMwareTools-*.tar.gz
 cd vmware-tools-distrib/
 ./vmware-install.pl -d
 umount /dev/cdrom
