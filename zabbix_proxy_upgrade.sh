@@ -1,3 +1,4 @@
+#!/bin/sh
 case $(uname -a | cut -f6 -d '.') in
 6)
   rpm -Uvh https://repo.zabbix.com/zabbix/4.2/rhel/6/x86_64/zabbix-release-4.2-1.el6.noarch.rpm
