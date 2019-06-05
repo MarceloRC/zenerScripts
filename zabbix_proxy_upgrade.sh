@@ -1,6 +1,6 @@
 #!/bin/sh
 yum -y update
-case $(uname -a | uname -a | cut -f3 -d ' ' | cut -f4 -d '.') in
+case $(uname -r | tr "." "\n" | grep el) in
 "el6")
   rpm -Uvh https://repo.zabbix.com/zabbix/4.2/rhel/6/x86_64/zabbix-release-4.2-1.el6.noarch.rpm
   ;;
