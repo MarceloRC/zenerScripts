@@ -10,4 +10,6 @@ case $(uname -a | cut -f6 -d '.') in
   ;;
 esac  
 yum -y clean all
+service zabbix-proxy stop && service zabbix-agent stop
 yum upgrade zabbix-proxy-sqlite3 zabbix-agent
+service zabbix-proxy start && service zabbix-agent start
