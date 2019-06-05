@@ -14,3 +14,6 @@ yum -y clean all
 service zabbix-proxy stop && service zabbix-agent stop
 yum -y upgrade zabbix-proxy-sqlite3 zabbix-agent
 service zabbix-proxy start && service zabbix-agent start
+chkconfig zabbix-agent on && chkconfig zabbix-proxy on
+zabbix_agentd -V | grep zabbix_agentd
+zabbix_proxy -V | grep zabbix_proxy
