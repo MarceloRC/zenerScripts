@@ -1,9 +1,9 @@
 #!/bin/sh
-case $(uname -a | cut -f6 -d '.') in
-6)
+case $(uname -a | uname -a | cut -f3 -d ' ' | cut -f4 -d '.') in
+"el6")
   rpm -Uvh https://repo.zabbix.com/zabbix/4.2/rhel/6/x86_64/zabbix-release-4.2-1.el6.noarch.rpm
   ;;
-7)
+"el7")
   rpm -Uvh https://repo.zabbix.com/zabbix/4.2/rhel/7/x86_64/zabbix-release-4.2-1.el7.noarch.rpm
   ;;
 *)
