@@ -1,4 +1,5 @@
 #!/bin/sh
+yum -y update
 case $(uname -a | uname -a | cut -f3 -d ' ' | cut -f4 -d '.') in
 "el6")
   rpm -Uvh https://repo.zabbix.com/zabbix/4.2/rhel/6/x86_64/zabbix-release-4.2-1.el6.noarch.rpm
@@ -11,7 +12,6 @@ case $(uname -a | uname -a | cut -f3 -d ' ' | cut -f4 -d '.') in
   ;;
 esac  
 yum -y clean all
-yum -y update
 service zabbix-proxy stop && service zabbix-agent stop
 yum -y upgrade zabbix-proxy-sqlite3 zabbix-agent
 service zabbix-proxy start && service zabbix-agent start
