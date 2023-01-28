@@ -7,3 +7,8 @@ You can do whatever you want with this script since you give it a list of things
 The first one reads from a file (dirs.txt) and call the BackupOneDir.bat recursively. The second one makes a 'dir' command in a directory and execute the BackupOneDir.bat recursively with the result. Be creative and do whatever is best for the client
 ## BackupOneDir.bat
 Gets a parameter %1 and make backup of it recursively on backblaze.
+## To do
+- Convert the scripts to PS1
+- Replace any names with vars
+- Create script to filter logs and send email
+- Maybe a dashboard
