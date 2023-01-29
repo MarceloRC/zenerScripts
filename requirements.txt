@@ -1,0 +1,7 @@
+autopep8==2.0.1
+dnspython==2.3.0
+ObjDict==0.4.4
+pycodestyle==2.10.0
+pymongo==4.3.2
+python-decouple==3.5
+tomli==2.0.1
