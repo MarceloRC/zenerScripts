@@ -4,8 +4,7 @@ $fail=0
 # create a new folder 
 if ($Env:Path -inotlike '*C:\CYGWIN64\BIN*')
 {
-    Write-Host ('FALHA - O caminho do Cygwin nao esta corretamente inserido no path do sistema.') -ForegroundColor Yellow
-    Write-Host ('Caso ainda não tenha instalado, instale-o preferencialmente no diretorio padrao da instalacao (c:\cygwin64\bin) e adicione-o ao path do sistema') -ForegroundColor Yellow
+    Write-Host ('FALHA - O caminho do Cygwin nao esta corretamente inserido no path do sistema. Caso ainda não tenha instalado, instale-o preferencialmente no diretorio padrao e adicione "c:\cygwin64\bin" ao path do sistema, de preferencia antes de todos os outros. Após inserir, feche esta janela, abra outra e execute novamente o scrit de checagem para que o path seja recarregado.') -ForegroundColor Yellow
     Write-Host ('--') -ForegroundColor Yellow
     $fail=1
     Exit
@@ -14,7 +13,7 @@ if ($Env:Path -inotlike '*C:\CYGWIN64\BIN*')
 }
 
 if ((get-command rsync.exe).Path -inotlike '*CYGWIN64\BIN*') {
-    Write-Host ('Rsync nao esta no path correto. Instale o cygwin ou remova o excedente ou coloque o path do cygwin em primeiro nas variaveis de ambiente') -ForegroundColor Yellow
+    Write-Host ('FALHA - Rsync nao esta no path correto. Possivelmente, o pacote rsync do cygwin não está instalado. Siga o passo a passo em https://gist.github.com/AllanNozomu/6b108324f9c72285adb2c77499cad4b8 e tente novamente. Aproveite para verificar o pacote ssh também pois iremos precisar dele') -ForegroundColor Yellow
     $fail=1
     Exit
 } else {
