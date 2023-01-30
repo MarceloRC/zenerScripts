@@ -12,7 +12,7 @@ db = mongoClient.logs
 
 
 def ProcessDir(customerName):
-    logging.info(f'Starting to process customer {customerName} on {path}')
+    logging.info(f'Starting customer: {customerName} on {path}')
     if customerName is None:
         logging.warning(f'Customer {customerName} came empty, exiting')
         exit
@@ -65,10 +65,10 @@ def ProcessDir(customerName):
                     collection.insert_one(logLine)
                 logging.info(f'Finished file: {logDir.Path}/{logFile} with {lineNumber} lines')
 #                    logging.debug(f'Just appending the array with {logLine.Rotina}')
+    logging.debug(f'Finished customer: {customerName} on {path}')
 
 
 dir_list = os.listdir(path)
 for customerName in dir_list:
     if os.path.isdir(f'{path}/{customerName}/'):
-        logging.info(f'Customer name from dirlist is {customerName}. Starging treating it')
         ProcessDir(customerName)
