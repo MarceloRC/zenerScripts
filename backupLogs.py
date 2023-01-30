@@ -52,7 +52,7 @@ def ProcessDir(customerName):
                         try:
                             logLine.Data = datetime.strptime(f'{entries[0]}T{entries[1]}Z0300' , '%Y/%m/%dT%H:%M:%SZ0300')
                         except:
-                            logging.warning(f'Cannot set date for line, setting default epoch for {line}')
+#                            logging.warning(f'Cannot set date for line, setting default epoch for {line}')
                             logLine.Data = datetime.strptime(f'1969/12/31 21:00:00Z0300', '%Y/%m/%d %H:%M:%SZ0300')
                         logLine.Status = entries[2]
                     if len(entriesForFilename) > 4:
