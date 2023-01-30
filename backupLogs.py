@@ -70,7 +70,7 @@ def ProcessDir(customerName):
 
 
 dir_list = os.listdir(path)
-logging.info(f'Starting the ETL routine. Found dirs are {dir_list}}')
+logging.info(f'Starting the ETL routine. Found dirs are {dir_list}')
 for customerName in dir_list:
     if os.path.isdir(f'{path}/{customerName}/'):
         ProcessDir(customerName)
