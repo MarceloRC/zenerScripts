@@ -38,7 +38,7 @@ def ProcessDir(customerName):
                 logging.info(f'Openning file {logFile}')
                 for i, line in enumerate (lines):
                     lineNumber=str(i+1)
-                    logging.debug(lineNumber)
+#                    logging.debug(lineNumber)
                     try:
                         # 2023/01/29 12:25:23 INFO  : FILIPE/DEPARTAMENTO COMERCIAL/OUTROS/SARA REBELLO/Imagens/IMG_1315.JPG: Copied (new)
                         entries = line.split()
@@ -63,8 +63,8 @@ def ProcessDir(customerName):
                         logLine.Rotina = ext[0]
                         logLine.Status = line
                     collection.insert_one(logLine)
-
-                    logging.debug(f'Just appending the array with {logLine.Rotina}')
+                logging.info(f'Routine and file {logFile} ended with {lineNumber} lines')
+#                    logging.debug(f'Just appending the array with {logLine.Rotina}')
 
 
 dir_list = os.listdir(path)
