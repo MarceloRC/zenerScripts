@@ -31,6 +31,7 @@ def ProcessDir(customerName):
             logDirs.append(logDir)
     for logDir in logDirs:
         logFiles = os.listdir(f'{logDir.Path}')
+        logging.info(f'In the logdir {logDir.Path}, we have the following files: {logFiles}')
         for logFile in logFiles:
             ext = os.path.splitext(logFile)
             if (ext[1] == '.log'):
@@ -69,6 +70,7 @@ def ProcessDir(customerName):
 
 
 dir_list = os.listdir(path)
+logging.info(f'Starting the ETL routine. Found dirs are {dir_list}}')
 for customerName in dir_list:
     if os.path.isdir(f'{path}/{customerName}/'):
         ProcessDir(customerName)
