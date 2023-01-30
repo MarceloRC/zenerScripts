@@ -35,7 +35,7 @@ def ProcessDir(customerName):
             ext = os.path.splitext(logFile)
             if (ext[1] == '.log'):
                 lines = open(f'{logDir.Path}/{logFile}', "r")
-                logging.info(f'Openning file {logFile}')
+                logging.info(f'Openning file {logDir.Path}/{logFile}')
                 for i, line in enumerate (lines):
                     lineNumber=str(i+1)
 #                    logging.debug(lineNumber)
