@@ -35,7 +35,7 @@ def ProcessDir(customerName):
             ext = os.path.splitext(logFile)
             if (ext[1] == '.log'):
                 lines = open(f'{logDir.Path}/{logFile}', "r")
-                logging.info(f'Openning file {logDir.Path}/{logFile}')
+                logging.info(f'Openning file: {logDir.Path}/{logFile}')
                 for i, line in enumerate (lines):
                     lineNumber=str(i+1)
 #                    logging.debug(lineNumber)
@@ -63,7 +63,7 @@ def ProcessDir(customerName):
                         logLine.Rotina = ext[0]
                         logLine.Status = line
                     collection.insert_one(logLine)
-                logging.info(f'Routine and file {logFile} ended with {lineNumber} lines')
+                logging.info(f'Finished file: {logDir.Path}/{logFile} with {lineNumber} lines')
 #                    logging.debug(f'Just appending the array with {logLine.Rotina}')
 
 
