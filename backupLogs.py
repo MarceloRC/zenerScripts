@@ -58,7 +58,7 @@ def ProcessDir(customerName):
                     if len(entriesForFilename) > 4:
                         logLine.Arquivo = entriesForFilename[3].strip()
                         logLine.Retorno = entriesForFilename[4].strip()
-                        logging.info(line)
+#                        logging.debug(line)
                     else:
                         logLine.Rotina = ext[0]
                         logLine.Status = line
@@ -70,5 +70,5 @@ def ProcessDir(customerName):
 dir_list = os.listdir(path)
 for customerName in dir_list:
     if os.path.isdir(f'{path}/{customerName}/'):
-        logging.info(customerName)
+        logging.info(f'Customer name from dirlist is {customerName}. Starging treating it')
         ProcessDir(customerName)
