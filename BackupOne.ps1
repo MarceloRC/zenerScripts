@@ -1,20 +1,18 @@
+# This script is suposed to be fixed. Any extra arguments, put in ExtraArgs variable
 param (
-[String] $SourceDir= “C:\BuildOutput”,
+[String] $SourceFolder= 'd:\',
 [String] $Transfers = 222
+[String] $AccountName='registere-account-on-rclone-config'
+[String] $BucketName='bucket-name-on-backblaze-or-other'
+[String] $DestFolder='destination-folder-inside-bucket'
+[String] $CustomerName='customer-name-without-special-chars'
+[String] $ExtraArgs=""
 )
 
-Write-Host “SourceDir = [$($SourceDir)]”
-Write-Host "Transfers = [$($Transfers)]”
-
+$Arguments="--log-level=INFO --log-file='c:\rclone\logs\$CurrentDate\$DestFolder.log' --filter-from 'c:\rclone\filters.txt' --transfers $Transfers --delete-during -P" 
 
 $CurrentDate=Get-Date -Format "yyyy-MM-dd"
-$AccountName='backblaze-account-on-backup-computer from rclone config'
-$Bucket='bucket name created on the interface'
-$FOLDER='destination folder inside the bucket'
-$ARGUMENTS='--log-level=INFO --log-file=c:\rclone\logs\$CurrentDate\drive-d.log --filter-from filters.txt  --transfers=$TRANSFERS --delete-during'
-$CUSTOMER_NAME='customer_name Without spaces, special chars and all letters non capital. if needed some separation, use underscore'
-echo $b
-echo $t
-echo 'New-Item -ItemType Directory -Force -Path "c:\rclone\logs\$CurrentDate" > $null'
-echo 'rsync -avHz -e "c:\cygwin64\bin\ssh.exe -o StrictHostKeyChecking=no -i ./id_rsa" ./ ubuntu@monitor.zener.digital:/home/ubuntu/backup_logs/$CUSTOMER_NAME'
-echo 'c:\rclone\rclone.exe sync d:/ jovempan-fileserver:jovempan-fileserver/drive-d/ $ARGUMENTS'
+
+New-Item -ItemType Directory -Force -Path "c:\rclone\$CurrentDate" > $null
+rsync -avHz -e "c:\cygwin64\bin\ssh.exe -o StrictHostKeyChecking=no -i ./id_rsa" ./ ubuntu@monitor.zener.digital:/home/ubuntu/backup_logs/$CustomerName
+c:\rclone\rclone.exe sync $SourceFolder $AccountName:$BucketName/$DestFolder/ $Arguments
