@@ -7,7 +7,7 @@ from datetime import datetime
 
 logging.basicConfig(level=logging.INFO)
 mongoClient = pymongo.MongoClient(config('MONGO_URL'))
-path = config('BASE_DIR')
+path = config('BACKUPLOGS_BASE_DIR')
 db = mongoClient.logs
 
 

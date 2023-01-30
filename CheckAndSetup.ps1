@@ -4,7 +4,9 @@ $fail=0
 # create a new folder 
 if ($Env:Path -inotlike '*C:\CYGWIN64\BIN*')
 {
-    Write-Host ('Cygwin nao esta no path. Instale-o preferencialmente no diretorio padrao da instalacao (c:\cygwin64\bin)') -ForegroundColor DarkRed
+    Write-Host ('FALHA - O caminho do Cygwin nao esta corretamente inserido no path do sistema.') -ForegroundColor Yellow
+    Write-Host ('Caso ainda não tenha instalado, instale-o preferencialmente no diretorio padrao da instalacao (c:\cygwin64\bin) e adicione-o ao path do sistema') -ForegroundColor Yellow
+    Write-Host ('--') -ForegroundColor Yellow
     $fail=1
     Exit
 } else {
@@ -12,14 +14,14 @@ if ($Env:Path -inotlike '*C:\CYGWIN64\BIN*')
 }
 
 if ((get-command rsync.exe).Path -inotlike '*CYGWIN64\BIN*') {
-    Write-Host ('Rsync nao esta no path correto. Instale o cygwin ou remova o excedente ou coloque o path do cygwin em primeiro nas variaveis de ambiente') -ForegroundColor DarkRed
+    Write-Host ('Rsync nao esta no path correto. Instale o cygwin ou remova o excedente ou coloque o path do cygwin em primeiro nas variaveis de ambiente') -ForegroundColor Yellow
     $fail=1
     Exit
 } else {
     Write-Host ('rsync no path correto') -ForegroundColor DarkGreen
 }
 if ((get-command ssh.exe).Path -inotlike '*CYGWIN64\BIN*') {
-    Write-Host ('SSH nao esta no path correto. Instale o cygwin ou remova o excedente ou coloque o path do cygwin em primeiro nas variaveis de ambiente') -ForegroundColor DarkRed
+    Write-Host ('SSH nao esta no path correto. Instale o cygwin ou remova o excedente ou coloque o path do cygwin em primeiro nas variaveis de ambiente') -ForegroundColor Yellow
     $fail=1
     Exit
 } else {
