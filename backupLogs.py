@@ -27,10 +27,10 @@ def ProcessDir(customerName):
         completePath=f'{path}/{customerName}/{customerDir}'
         logging.info(f'Files and dirs in the customer folder:{customerDirs}.')
         if os.path.isdir(completePath):
-            logging.info(f'Adding {logDir.Path} to the list.')
             logDir = ObjDict()
             logDir.Path = completePath
             logDir.Date = customerDir
+            logging.info(f'Adding {logDir.Path} to the list.')
             logDirs.append(logDir)
 
     for logDir in logDirs:
