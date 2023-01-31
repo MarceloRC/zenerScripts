@@ -22,13 +22,17 @@ def ProcessDir(customerName):
         collection.drop()
 
     customerDirs = os.listdir(f'{path}/{customerName}')
+    logging.info(f'Files and dirs in the customer folder:{customerDirs}.')
     for customerDir in customerDirs:
         completePath=f'{path}/{customerName}/{customerDir}'
+        logging.info(f'Files and dirs in the customer folder:{customerDirs}.')
         if os.path.isdir(completePath):
+            logging.info(f'Adding {logDir.Path} to the list.')
             logDir = ObjDict()
             logDir.Path = completePath
             logDir.Date = customerDir
             logDirs.append(logDir)
+
     for logDir in logDirs:
         logFiles = os.listdir(f'{logDir.Path}')
         logging.info(f'In the logdir {logDir.Path}, we have the following files: {logFiles}')
