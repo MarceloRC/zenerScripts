@@ -23,5 +23,4 @@ if ($fail -eq 0){
     $zip.Entries | Where-Object Name -match rclone.exe | ForEach-Object{[System.IO.Compression.ZipFileExtensions]::ExtractToFile($_, "$pathRclone/$($_.Name)", $true)}
     $zip.Dispose()
     Write-Host ('Instalacao completada com sucesso') -ForegroundColor Green
-
 }

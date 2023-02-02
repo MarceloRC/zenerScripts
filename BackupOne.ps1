@@ -16,5 +16,9 @@ $CurrentDate=Get-Date -Format "yyyy-MM-dd"
 
 
 New-Item -ItemType Directory -Force -Path "c:\rclone\logs\$CurrentDate" > $null
+
+# Sync Files in bucket
 c:\rclone\rclone.exe sync --transfers $Transfers --filter-from 'c:\rclone\filters.txt' --log-level INFO  --log-file='c:\rclone\logs\'$CurrentDate'\'$DestFolder'.log' "$SourceFolder" $AccountName':'$BucketName'/'"$DestFolder"
+
+# Sync Logs Server 
 c:\rclone\rclone.exe sync  --log-level INFO  --log-file="c:\rclone\logs\$CurrentDate\sendbackupzener.log" $SourceFolderLog $AccountNameLog':'$BucketNameLog/$CustomerName
