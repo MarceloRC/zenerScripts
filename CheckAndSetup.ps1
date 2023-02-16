@@ -7,6 +7,7 @@ if ($fail -eq 0){
     Write-Host ('Pre requisitos completados com sucesso. Iniciando instalacao') -ForegroundColor Green
     Write-Host ('Criando diretorio c:\rclone (Diretorio base de todo o conjunto de scripts)') -ForegroundColor Green
     New-Item -ItemType Directory -Force -Path 'c:\rclone\logs'> $null
+    New-Item -ItemType Directory -Force -Path 'c:\rclone\log-compactado'> $null   
     #The following line is for Windows 2012 and bellow (TLS1.2)
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     Write-Host ('Fazendo Download do arquivo BackupOne') -ForegroundColor Green
