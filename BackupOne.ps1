@@ -22,3 +22,6 @@ c:\rclone\rclone.exe sync --transfers $Transfers --filter-from 'c:\rclone\filter
 
 # Sync Logs Server 
 c:\rclone\rclone.exe sync  --log-level INFO  --log-file="c:\rclone\logs\$CurrentDate\sendbackupzener.log" $SourceFolderLog $AccountNameLog':'$BucketNameLog/$CustomerName
+
+# Enviar e-mail do log gerado do backup
+c:\rclone\send-mail.ps1
