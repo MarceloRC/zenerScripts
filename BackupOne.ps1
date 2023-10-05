@@ -13,5 +13,4 @@ $CurrentDate=Get-Date -Format "yyyy-MM-dd"
 
 
 New-Item -ItemType Directory -Force -Path "c:\rclone\$CurrentDate" > $null
-rsync -avHz -e "c:\cygwin64\bin\ssh.exe -o StrictHostKeyChecking=no -i ./id_rsa" ./20* ubuntu@monitor.zener.digital:/home/ubuntu/backup_logs/$CustomerName
 c:\rclone\rclone.exe sync --transfers $Transfers --filter-from 'c:\rclone\filters.txt' --log-level INFO  --log-file='c:\rclone\'$CurrentDate'\'$DestFolder'.log' $SourceFolder $AccountName':'$BucketName'/'$DestFolder
