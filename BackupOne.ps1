@@ -21,7 +21,9 @@ New-Item -ItemType Directory -Force -Path "c:\rclone\logs\$CurrentDate" > $null
 c:\rclone\rclone.exe sync --transfers $Transfers --filter-from 'c:\rclone\filters.txt' --log-level INFO  --log-file='c:\rclone\logs\'$CurrentDate'\'$DestFolder'.log' "$SourceFolder" $AccountName':'$BucketName'/'"$DestFolder"
 
 # Sync Logs Server 
-c:\rclone\rclone.exe sync  --log-level INFO  --log-file="c:\rclone\logs\$CurrentDate\sendbackupzener.log" $SourceFolderLog $AccountNameLog':'$BucketNameLog/$CustomerName
+c:\rclone\rclone.exe sync  --log-level INFO $SourceFolderLog $AccountNameLog':'$BucketNameLog/$CustomerName
+# Apagar logs antigos mais de 30 dias
+dir c:\rclone\logs | where { ((get-date)-$_.creationTime).days -gt 30 } | remove-item -force -Recurse
 
 # Enviar e-mail do log gerado do backup
-c:\rclone\send-mail.ps1
+#c:\rclone\send-mail.ps1
