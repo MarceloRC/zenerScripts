@@ -32,9 +32,12 @@ rclone --log-level INFO --transfers=50 --log-file="$log/backup$date.log" copy $A
 echo "Stopping the donwload backup process for $(date +'%d/%m/%Y %H:%M:%S')" >> $logfile
 echo "-------------------------------------------------------------------" >> $logfile
 
+<<<<<<< HEAD
 ls  /home/ubuntu/backup_logs/ > /home/ubuntu/zenerScripts/empresas.txt
 
 while read -r v1; do
 sudo find /home/ubuntu/backup_logs/$v1 -type d -mtime +10 -exec rm -rf {} \;
 
 done < /home/ubuntu/zenerScripts/empresas.txt
+=======
+>>>>>>> 9018910d2f524c33ce49fd1211fe305ec09a696f
