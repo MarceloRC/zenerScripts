@@ -7,7 +7,6 @@ key=$4
 secret=$5
 type=$6
 
-
 # Altere a chave e o segredo da API, o número de dias para manter backups, o caminho para seus backups e o nome do host para seu firewall
 
 daystokeep=20

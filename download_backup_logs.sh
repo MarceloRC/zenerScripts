@@ -15,6 +15,7 @@
 ##########################################################################
 # Variaveis
 # =====================
+
 date_now=$(date +"%Y-%m-%d")
 logfile=/home/ubuntu/zenerScripts/logs/donwload_backup_$date_now.log
 touch $logfile
