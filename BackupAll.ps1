@@ -1,3 +1,7 @@
+# Scritp para uso de todas as pastas
+c:\rclone\BackupOne.ps1 -SourceFolder E:\ -Transfers 150 -DestFolder drive-e -BucketName name-bucket -AccountName account-name
+
+# Script para casos de listagem de pastas especificas
 # Chamar script para listar as pastas
 c:\rclone\dir.bat
 
